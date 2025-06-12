@@ -147,7 +147,7 @@ def evaluate(model, mode):
             ys.append(y)
             y_pred = scaler.inverse_transform(output)
             y_true = scaler.inverse_transform(y)
-            loss1 = masked_mae_loss(output, y, scaler, opt)  # masked_mae_loss(y_pred, y_true)
+            loss1 = masked_mae_loss(output, y, scaler, opt) 
             loss = loss1
             losses.append(loss.item())
             ys_true.append(y_true)
@@ -208,7 +208,7 @@ def traintest_model():
             optimizer.zero_grad()
             x = x.permute(0, 2, 1, 3)
             output, query = model(x, y, batches_seen)
-            loss1 = masked_mae_loss(output, y, scaler, opt)  # masked_mae_loss(y_pred, y_true)
+            loss1 = masked_mae_loss(output, y, scaler, opt) 
             loss = loss1
             losses.append(loss.item())
             batches_seen += 1
